@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./css/style.css">
         <title>Kostka</title>
 
         <!-- Bootstrap CSS -->
@@ -22,7 +23,15 @@
             <figure>
                 <img id="cube" src="img/kostka6.png" alt="Kostka">
             </figure>
-            <div id="result">Výsledek</div>
+            <canvas width="200" height="300" id="canvas"></canvas>
+            <div id="result">
+                <p>Hod: Nic</p>
+                <p>Počet hodů: 0</p>
+                <p>Součet hodů: 0</p>
+                <p>Průměr hodů: 0</p>
+                <p>Nejvyšší hod: 0</p>
+                <p>Nejmenší hod: 0</p>
+            </div>
             <button id="game">Zapnout</button>
         </div>
 
