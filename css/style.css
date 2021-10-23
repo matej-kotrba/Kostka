@@ -6,3 +6,9 @@
     margin-left: 200px;
     position: absolute;
 }
+
+h1 {
+    background-color: rgb(6, 110, 170);
+    padding: 100px;
+    margin-top: -10px !important;
+}
