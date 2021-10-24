@@ -18,12 +18,19 @@
         <![endif]-->
     </head>
     <body>
-        <h1 class="text-center">Kostka</h1>
+        <h1>|Kostka|</h1>
         <div class="container">
             <figure>
                 <img id="cube" src="img/kostka6.png" alt="Kostka">
             </figure>
+            <div id="bet">
+            <p>Napište sázku na výsledek</p>
+            <input id="vyber" type="number" max="6" min="1">
+            <p id="betShow"></p>
+            <p id="win">Poslední sázka byla: </p>
+            </div>
             <canvas width="200" height="300" id="canvas"></canvas>
+            <div id="blok">
             <div id="result">
                 <p>Hod: Nic</p>
                 <p>Počet hodů: 0</p>
@@ -31,8 +38,10 @@
                 <p>Průměr hodů: 0</p>
                 <p>Nejvyšší hod: 0</p>
                 <p>Nejmenší hod: 0</p>
+                <p>Počet vyhrných sázek: 0</p>
             </div>
             <button id="game">Zapnout</button>
+            </div>
         </div>
 
         <!-- jQuery -->

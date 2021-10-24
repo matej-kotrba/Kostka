@@ -1,5 +1,6 @@
 #result {
     margin-top: 100px !important;
+    color: whitesmoke;
 }
 
 #canvas {
@@ -7,8 +8,62 @@
     position: absolute;
 }
 
+#cube {
+    position: absolute !important;
+    text-align: center !important;
+    margin: 0 auto !important;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+body {
+    background-color: rgb(34, 34, 34) !important;
+    width: 100%;
+}
+
 h1 {
+    text-align: center;
     background-color: rgb(6, 110, 170);
-    padding: 100px;
+    color: whitesmoke !important;
+    font-size: 80px !important;
+    padding: 50px;
     margin-top: -10px !important;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif !important;
+}
+
+button {
+    background-color: rgb(23, 120, 177);
+    border: 2px solid transparent;
+    border-radius: 8px;
+    padding: 20px 35px;
+    font-size: 25px !important;
+    transition: 0.5s;
+    min-width: 200px;
+    
+}
+
+button:hover {
+    background-color: rgb(29, 172, 255);
+    transition: 0.5s;
+    color: whitesmoke !important;
+    border-radius: 20px;
+}
+
+#blok {
+    left: 0% !important;
+    transform: translate(-50px,0);
+}
+
+#bet {
+    color: whitesmoke;
+    position: absolute;
+    right: 20% !important;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+#vyber {
+    color: black;
 }
