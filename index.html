@@ -1,36 +1,43 @@
 <!DOCTYPE html>
 <html lang="cs">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="./css/style.css">
-        <title>Kostka</title>
 
-        <!-- Bootstrap CSS -->
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Kostka</title>
 
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.3/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
-    </head>
-    <body>
-        <h1>|Kostka|</h1>
-        <div class="container">
-            <figure>
-                <img id="cube" src="img/kostka6.png" alt="Kostka">
-            </figure>
-            <div id="bet">
+</head>
+
+<body>
+    <h1>|Kostka|</h1>
+    <div class="container">
+        <figure>
+            <img id="cube" src="img/kostka5.png" alt="Kostka">
+        </figure>
+        <div id="skin">
+            <p>Pro změnění barvy kostky použijte 'Levou/Pravou šipku'</p>
+            <div class="sipky"><p id="leva">&LeftArrow;</p>
+            <p id="prava">&RightArrow;</p></div>
+        </div>
+        <div id="bet">
             <p>Napište sázku na výsledek</p>
             <input id="vyber" type="number" max="6" min="1">
             <p id="betShow"></p>
             <p id="win">Poslední sázka byla: </p>
-            </div>
-            <canvas width="200" height="300" id="canvas"></canvas>
-            <div id="blok">
+        </div>
+        <canvas width="200" height="300" id="canvas"></canvas>
+        <div id="blok">
             <div id="result">
                 <p>Hod: Nic</p>
                 <p>Počet hodů: 0</p>
@@ -41,13 +48,14 @@
                 <p>Počet vyhrných sázek: 0</p>
             </div>
             <button id="game">Zapnout</button>
-            </div>
         </div>
+    </div>
 
-        <!-- jQuery -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <!-- Bootstrap JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script src="js/game.js"></script>
-    </body>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/game.js"></script>
+</body>
+
 </html>

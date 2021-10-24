@@ -1,5 +1,61 @@
 var sound = new Audio();
 sound.src = "./img/automat.mp3";
+var soundWin = new Audio();
+soundWin.src = "./img/win.mp3";
+
+var skinSelector = 0;
+
+var efektSipkaPrava = undefined;
+var efektSipkaLeva = undefined;
+
+window.addEventListener('keydown', function (e) {
+    if (e.code == "ArrowRight") {
+        skinSelector++;
+        clearTimeout(efektSipkaPrava)
+        if (skinSelector > 3) {
+            skinSelector = 0;
+        }
+        document.getElementById('prava').style.background = "red";
+        document.getElementById('prava').style.borderRadius = "10px";
+        document.getElementById('prava').style.transition = "0.5s";
+        document.getElementById('prava').style.fontSize = "30px";
+        efektSipkaPrava = setTimeout(function () {
+            document.getElementById('prava').style.background = "transparent";
+            document.getElementById('prava').style.fontSize = "25px";
+            
+        }, 1000);
+    }
+    if (e.code == "ArrowLeft") {
+        skinSelector--;
+        clearTimeout(efektSipkaLeva)
+        if (skinSelector < 0) {
+            skinSelector = 3
+        }
+        document.getElementById('leva').style.background = "red";
+        document.getElementById('leva').style.borderRadius = "10px";
+        document.getElementById('leva').style.transition = "0.5s";
+        document.getElementById('leva').style.fontSize = "30px";
+        efektSipkaLeva = setTimeout(function () {
+            document.getElementById('leva').style.background = "transparent";
+            document.getElementById('leva').style.fontSize = "25px";
+        }, 1000);
+    }
+
+    switch (skinSelector) {
+        case 0:
+            document.getElementById('cube').src = "./img/kostka" + hodnota + ".png";
+            break;
+        case 1:
+            document.getElementById('cube').src = "./img/kostka-cervena" + hodnota + ".png";
+            break;
+        case 2:
+            document.getElementById('cube').src = "./img/kostka-zelena" + hodnota + ".png";
+            break;
+        case 3:
+            document.getElementById('cube').src = "./img/kostka-zluta" + hodnota + ".png";
+            break;
+    }
+})
 
 var betStatus = "Nestanovena";
 
@@ -63,7 +119,20 @@ var betWins = 0;
 
 function hod(h) {
     hody.push(h);
-    document.getElementById('cube').src = 'img/kostka' + h + '.png';
+    switch (skinSelector) {
+        case 0:
+            document.getElementById('cube').src = "./img/kostka" + h + ".png";
+            break;
+        case 1:
+            document.getElementById('cube').src = "./img/kostka-cervena" + h + ".png";
+            break;
+        case 2:
+            document.getElementById('cube').src = "./img/kostka-zelena" + h + ".png";
+            break;
+        case 3:
+            document.getElementById('cube').src = "./img/kostka-zluta" + h + ".png";
+            break;
+    }
     document.getElementById('result').innerHTML = '<p>Hod: ' + h + '</p>';
     document.getElementById('result').innerHTML +=
         '<p>Počet hodů: ' + hody.length + '</p>';
@@ -80,20 +149,35 @@ function hod(h) {
 }
 
 var animaceKostka = null;
-var hodnota = null;
+var hodnota = 5;
 var animaceStart = false;
 var zapnuto = true;
 
 function zapnoutAnimaci() {
     if (animaceKostka == null && zapnuto) {
+        soundWin.pause();
+        soundWin.currentTime = 0;
         animaceStart = true;
         zapnuto = false;
         setTimeout(function () {
-                sound.play();
-                sound.loop = true;
-                animaceKostka = setInterval(function () {
+            sound.play();
+            sound.loop = true;
+            animaceKostka = setInterval(function () {
                 hodnota = Math.ceil(Math.random() * 6)
-                document.getElementById('cube').src = 'img/kostka' + hodnota + '.png';
+                switch (skinSelector) {
+                    case 0:
+                        document.getElementById('cube').src = "./img/kostka" + hodnota + ".png";
+                        break;
+                    case 1:
+                        document.getElementById('cube').src = "./img/kostka-cervena" + hodnota + ".png";
+                        break;
+                    case 2:
+                        document.getElementById('cube').src = "./img/kostka-zelena" + hodnota + ".png";
+                        break;
+                    case 3:
+                        document.getElementById('cube').src = "./img/kostka-zluta" + hodnota + ".png";
+                        break;
+                }
             }, 50);
         }, 2000)
         document.getElementById('game').innerHTML = 'Stop';
@@ -107,6 +191,7 @@ function zapnoutAnimaci() {
             animaceKostka = null;
             if (betStatus == hodnota) {
                 betWins++;
+                soundWin.play();
                 document.getElementById('win').innerHTML = "Poslední sázka byla: Výhra"
             }
             else if (betStatus != hodnota && betStatus != "" && betStatus != "Nestanovena") {
@@ -161,7 +246,20 @@ class Obrazek {
         this.w = 90;
         this.h = 90;
         this.image = new Image()
-        this.image.src = "./img/kostka" + image + ".png";
+        switch (skinSelector) {
+            case 0:
+                this.image.src = "./img/kostka" + image + ".png";
+                break;
+            case 1:
+                this.image.src = "./img/kostka-cervena" + image + ".png";
+                break;
+            case 2:
+                this.image.src = "./img/kostka-zelena" + image + ".png";
+                break;
+            case 3:
+                this.image.src = "./img/kostka-zluta" + image + ".png";
+                break;
+        }
         this.a = 1;
         this.zobrazeni = prodleva * 5;
         this.pripraven = false;
