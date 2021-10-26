@@ -82,4 +82,12 @@ button:hover {
 
 .sipky p {
     font-size: 25px;
+    padding: 0px 5px;
 }
+
+#settings {
+    position: relative;
+    color: whitesmoke;
+    margin-left: -10%;
+}
+

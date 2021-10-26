@@ -15,7 +15,7 @@ window.addEventListener('keydown', function (e) {
         if (skinSelector > 3) {
             skinSelector = 0;
         }
-        document.getElementById('prava').style.background = "red";
+        document.getElementById('prava').style.background = "rgb("+Math.random()*255 + ","+Math.random()*255+","+Math.random()*255+")";
         document.getElementById('prava').style.borderRadius = "10px";
         document.getElementById('prava').style.transition = "0.5s";
         document.getElementById('prava').style.fontSize = "30px";
@@ -31,7 +31,7 @@ window.addEventListener('keydown', function (e) {
         if (skinSelector < 0) {
             skinSelector = 3
         }
-        document.getElementById('leva').style.background = "red";
+        document.getElementById('leva').style.background = "rgb("+Math.random()*255 + ","+Math.random()*255+","+Math.random()*255+")";
         document.getElementById('leva').style.borderRadius = "10px";
         document.getElementById('leva').style.transition = "0.5s";
         document.getElementById('leva').style.fontSize = "30px";
@@ -160,8 +160,10 @@ function zapnoutAnimaci() {
         animaceStart = true;
         zapnuto = false;
         setTimeout(function () {
+            if (document.getElementById('zvuk').checked == true) {
             sound.play();
             sound.loop = true;
+            }
             animaceKostka = setInterval(function () {
                 hodnota = Math.ceil(Math.random() * 6)
                 switch (skinSelector) {
@@ -191,7 +193,9 @@ function zapnoutAnimaci() {
             animaceKostka = null;
             if (betStatus == hodnota) {
                 betWins++;
+                if (document.getElementById('zvuk').checked == true) {
                 soundWin.play();
+                }
                 document.getElementById('win').innerHTML = "Poslední sázka byla: Výhra"
             }
             else if (betStatus != hodnota && betStatus != "" && betStatus != "Nestanovena") {
@@ -273,6 +277,10 @@ class Obrazek {
         c.globalAlpha = 1;
         if (this.a > 0) {
             this.a -= 0.015;
+            this.w -= 1 / this.a;
+            this.h -= 1 / this.a;
+            this.y += 0.5 / this.a;
+            this.x += 0.5 / this.a;
         }
         if (this.a <= 0) {
             this.a = 0;
